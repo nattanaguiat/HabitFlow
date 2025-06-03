@@ -1,27 +1,20 @@
 import mongoose from "mongoose";
 
 const habitSchema = new mongoose.Schema({
-    userId: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
       },
-      name: {
+      title: {
         type: String,
         required: true
-      },
-      description: {
-        type: String,
-        default: ''
       },
       frequency: {
         type: String,
         enum: ['daily', 'weekly'],
+        default: 'daily',
         required: true
-      },
-      category: {
-        type: String,
-        default: 'General'
       },
 },{
     timestamps: true

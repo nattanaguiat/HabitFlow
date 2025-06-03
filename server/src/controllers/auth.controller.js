@@ -32,6 +32,10 @@ export const register = async (req, res) => {
       expiresIn: "1h",
     });
 
+    res.cookie("token", token);
+    // Respond with user details
+    // Note: Do not send the password in the response
+
     res.status(201).json({
       id: userSaved._id,
       username: userSaved.username,

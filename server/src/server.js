@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { connectDB } from "./config/connection.js";
 import authRoutes from "./routes/auth.routes.js";
+import habitRoutes from "./routes/habit.routes.js";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", authRoutes);
+app.use("/api", habitRoutes);
 
 app.listen(PORT, () => {
   connectDB();
